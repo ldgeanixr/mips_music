@@ -111,7 +111,7 @@ jr $ra
 a_low:
 
 li $v0, 31 # to produce sound
-li $a0, 69 #pitch (0-127)
+li $a0, 57 #pitch (0-127)
 li $a1, 1000 #duration in milliseconds
 li $a2, 28 #instrument (0-127)
 li $a3, 100 # volume (0-127)
@@ -138,6 +138,16 @@ li $a3, 100 # volume (0-127)
 syscall
 jr $ra
 
+bi_low:
+
+li $v0, 31 # to produce sound
+li $a0, 59 #pitch (0-127)
+li $a1, 1000 #duration in milliseconds
+li $a2, 28 #instrument (0-127)
+li $a3, 100 # volume (0-127)
+syscall
+jr $ra
+
 b_sharp:
 
 li $v0, 31 # to produce sound
@@ -151,7 +161,7 @@ jr $ra
 b_sharp_low:
 
 li $v0, 31 # to produce sound
-li $a0, 62 #pitch (0-127)
+li $a0, 60 #pitch (0-127)
 li $a1, 1000 #duration in milliseconds
 li $a2, 28 #instrument (0-127)
 li $a3, 100 # volume (0-127)
@@ -162,7 +172,7 @@ jr $ra
 main:
 
 
-
+#Part 1
 jal e
 jal sleep
 jal d_sharp
@@ -174,15 +184,17 @@ jal sleep
 
 jal e
 jal sleep
-jal bi
+jal bi_low
 jal sleep
 jal d
 jal sleep
-jal b_sharp
+jal b_sharp_low
 jal sleep
-jal a
+jal a_low
 jal sleep
 jal sleep
+
+#Part2
 
 
 jal b_sharp_low
@@ -195,6 +207,8 @@ jal bi
 jal sleep
 jal sleep
 
+#Part3
+
 jal e
 jal sleep
 jal g_sharp
@@ -204,6 +218,43 @@ jal sleep
 jal b_sharp
 jal sleep
 jal sleep
+
+#Part 1
+jal e
+jal sleep
+jal d_sharp
+jal sleep
+jal e
+jal sleep
+jal d_sharp
+jal sleep
+
+jal e
+jal sleep
+jal bi_low
+jal sleep
+jal d
+jal sleep
+jal b_sharp_low
+jal sleep
+jal a_low
+jal sleep
+jal sleep
+
+#Part2
+
+
+jal b_sharp_low
+jal sleep
+jal e
+jal sleep
+jal a
+jal sleep
+jal bi
+jal sleep
+jal sleep
+
+#Part4
 
 jal e
 jal sleep
